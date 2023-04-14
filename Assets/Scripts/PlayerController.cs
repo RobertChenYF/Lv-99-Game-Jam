@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxSpeed = 5f;
-
     public Vector2 direction;
-    public float lerpRate = 0.2f;
-    private Rigidbody rb;
+    public float oxygen = 100f;
+    public int pearlNumber = 0;
+
+   [SerializeField]
+    private float maxSpeed = 5f;
+    [SerializeField]
+    private float lerpRate = 0.1f;
+    [SerializeField]
+    private float oxygenRate = 0.2f;
+    [SerializeField]
+    private float currentSpeed;
+
+    private CharacterController characterController;
+    private bool isAlive = true;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        
-    }
-    void FixedUpdate()
-    {
+        if(oxygen <= 0)
+        {
+            isAlive = false;
+            return;
+        }
         GetInput();
         PlayerMove();
+        oxygen -= Time.deltaTime * oxygenRate;
     }
 
     void GetInput()
@@ -35,9 +48,11 @@ public class PlayerController : MonoBehaviour
     {
         if(direction == Vector2.zero)
         {
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, lerpRate);
+            currentSpeed = Mathf.Lerp(currentSpeed, 0, lerpRate);
+            characterController.Move(transform.right * currentSpeed * Time.deltaTime);
             return;
         }
-        rb.velocity = direction * maxSpeed;
+        characterController.Move(direction * maxSpeed * Time.deltaTime);
+        currentSpeed = maxSpeed;
     }
 }
