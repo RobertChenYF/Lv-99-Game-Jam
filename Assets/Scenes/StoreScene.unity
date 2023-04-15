@@ -524,7 +524,6 @@ GameObject:
   - component: {fileID: 810402789}
   - component: {fileID: 810402788}
   - component: {fileID: 810402787}
-  - component: {fileID: 810402792}
   - component: {fileID: 810402791}
   m_Layer: 0
   m_Name: Capsule
