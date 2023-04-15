@@ -338,8 +338,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1.6
+      scalar: 4
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2299,12 +2299,12 @@ ParticleSystem:
         m_RotationOrder: 4
     inWorldSpace: 0
   InheritVelocityModule:
-    enabled: 0
+    enabled: 1
     m_Mode: 0
     m_Curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5092,10 +5092,14 @@ MonoBehaviour:
   pearlNumber: 0
   v: {fileID: 0}
   bubble: {fileID: 1888653279815528631}
-  maxSpeed: 2
+  maxSpeed: 10
   lerpRate: 0.2
   oxygenRate: 1
   currentSpeed: 0
+  sunLight: {fileID: 0}
+  cameraHighColor: {r: 0.3517711, g: 0.8773585, b: 0.7726598, a: 1}
+  cameraLowColor: {r: 0.03773585, g: 0.04321363, b: 0.1509434, a: 1}
+  mainCamera: {fileID: 0}
 --- !u!143 &1888653280189882703
 CharacterController:
   m_ObjectHideFlags: 0
