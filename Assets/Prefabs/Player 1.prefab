@@ -5088,7 +5088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  oxygen: 5
+  oxygen: 100
   pearlNumber: 0
   v: {fileID: 0}
   bubble: {fileID: 1888653279815528631}
