@@ -149,12 +149,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {   
-            /*if(horizontal > 0.3){
-                 transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
-            }
-            else if(horizontal < -0.3){
-                transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
-            }*/
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
@@ -169,10 +163,35 @@ public class PlayerController : MonoBehaviour
             playerAnima.SetBool("isMoving", false);
         }
         else
-        {
+        {   
+            PlayerRotate();
             playerAnima.SetBool("isMoving", true);
         }
         playerAnima.SetFloat("X", horizontal * currentSpeed / maxSpeed);
         playerAnima.SetFloat("Y", vertical * currentSpeed / maxSpeed);
+    }
+
+    void PlayerRotate()
+    {
+        if(horizontal > 0.3)
+        {   
+            transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
+        }
+        else if(horizontal < -0.3)
+        {
+            transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
+        }
+        if(vertical > 0.3)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
+        }
+        else if(vertical < -0.3)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, -0.1f, transform.localScale.z);
+        }
+    }
+    void PlayerDead()
+    {
+        
     }
 }
