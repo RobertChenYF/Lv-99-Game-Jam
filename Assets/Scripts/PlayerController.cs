@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.y > 8)
+        if(transform.position.y > 7)
         {
             PlayerDead();
         }
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
-        if(transform.position.y > -100 * pipeLevel && Mathf.Abs(transform.position.x) < 3){
+        if(transform.position.y > -100 * pipeLevel + 8 && Mathf.Abs(transform.position.x) < 3){
             oxygen = maxOxygen;
             softTube.positionCount = 5;
             maxSpeed = 6;
