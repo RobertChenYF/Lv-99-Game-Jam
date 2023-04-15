@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4100438542139275972}
   - component: {fileID: 3176960455046059869}
   - component: {fileID: 776555556041533221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Animation
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: c8f362bed59dc409d813ab5fc01b3888,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: c8f362bed59dc409d813ab5fc01b3888,
         type: 3}
       propertyPath: m_RootOrder
@@ -154,6 +159,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4981639865652443969, guid: c8f362bed59dc409d813ab5fc01b3888,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7546731456442191801, guid: c8f362bed59dc409d813ab5fc01b3888,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: c8f362bed59dc409d813ab5fc01b3888,

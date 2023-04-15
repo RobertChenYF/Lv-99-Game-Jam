@@ -749,10 +749,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776555556041533221, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776555556041533221, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 776555556041533221, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 776555556041533221, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2051452824955226839, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176960455046059869, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
+        type: 3}
+      propertyPath: m_SlopeLimit
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4100438542139275971, guid: 99ec5917910d24ff0a78505e2c8cc3ec,
         type: 3}
