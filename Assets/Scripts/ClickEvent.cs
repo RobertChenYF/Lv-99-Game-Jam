@@ -26,7 +26,13 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
  
     public void OnPointerEnter(PointerEventData eventData)
     {   
-        text.text = "This is "+this.name + ". This costs " + pearlCost + " pearls.";
+        if(this.name.Equals("Exit")){
+            text.text = "Do you want to leave?";
+        }
+        else{
+            text.text = "This is "+this.name + ". This costs " + pearlCost + " pearls.";
+        }
+        
         dialogBox.SetActive(true);
     }
  
@@ -40,7 +46,14 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         if(GlobalData.Instance.pearls >= pearlCost)
         {
             GlobalData.Instance.pearls -= pearlCost;
-            GlobalData.Instance.maxOxygen += oxygenAdd;
+            if(this.name.Equals("breathing tube")){
+                GlobalData.Instance.pipeLevel += 1;
+            }
+            else{
+                GlobalData.Instance.maxOxygen += oxygenAdd;
+            }
+            
+            dialogBox.SetActive(false);
             this.gameObject.SetActive(false);
         }
         else

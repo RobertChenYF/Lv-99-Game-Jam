@@ -5,7 +5,7 @@ public class GlobalData
 {
     private GlobalData()
     {
-        pearls = 100;
+        pearls = 20;
         maxOxygen = 100;
         pipeLevel = 1;
     }

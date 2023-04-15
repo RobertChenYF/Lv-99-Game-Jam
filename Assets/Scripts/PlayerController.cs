@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LineRenderer softTube;
 
-    public int TubeCount = 1;
+   
 
 
 
@@ -111,8 +111,8 @@ public class PlayerController : MonoBehaviour
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
-        if(transform.position.y > -100 * TubeCount && Mathf.Abs(transform.position.x) < 3){
-            oxygen = 100;
+        if(transform.position.y > -100 * GlobalData.Instance.pipeLevel && Mathf.Abs(transform.position.x) < 3){
+            oxygen = GlobalData.Instance.maxOxygen;
             softTube.positionCount = 5;
             maxSpeed = 6;
         }
@@ -149,12 +149,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {   
-            /*if(horizontal > 0.3){
-                 transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
-            }
-            else if(horizontal < -0.3){
-                transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
-            }*/
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
@@ -169,10 +163,35 @@ public class PlayerController : MonoBehaviour
             playerAnima.SetBool("isMoving", false);
         }
         else
-        {
+        {   
+            PlayerRotate();
             playerAnima.SetBool("isMoving", true);
         }
         playerAnima.SetFloat("X", horizontal * currentSpeed / maxSpeed);
         playerAnima.SetFloat("Y", vertical * currentSpeed / maxSpeed);
+    }
+
+    void PlayerRotate()
+    {
+        if(horizontal > 0.3)
+        {   
+            transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
+        }
+        else if(horizontal < -0.3)
+        {
+            transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
+        }
+        if(vertical > 0.3)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
+        }
+        else if(vertical < -0.3)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, -0.1f, transform.localScale.z);
+        }
+    }
+    void PlayerDead()
+    {
+        
     }
 }
