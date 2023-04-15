@@ -143,9 +143,9 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 midPoint1 = new Vector3(head.position.x/2.0f,head.position.y-1,0);
-        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,head.position.y-0.6f,0);
+        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,head.position.y-0.6f,0.3f);
         Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,head.position.y-0.8f,0);
-        softTube.SetPositions(new Vector3[] {head.position,midPoint3,midPoint1,midPoint2,new Vector3(0,head.position.y+2,0)});
+        softTube.SetPositions(new Vector3[] {head.position,midPoint3,midPoint1,midPoint2,new Vector3(Mathf.Sign(head.position.x)*0.01f, head.position.y+0.8f, 1)});
 
 
     }
