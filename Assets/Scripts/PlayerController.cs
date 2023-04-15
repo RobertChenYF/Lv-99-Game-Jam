@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float vertical;
 
 
+    [SerializeField] private ParticleSystem bubble;
 
     
     private Vignette vg;
@@ -33,8 +34,6 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private bool isAlive = true;
     private Vector2 lastDirection;
-    private float horizon;
-    private float vertical;
 
 
     //these parameter controls the scene depends on player depth
@@ -150,12 +149,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {   
-            if(horizontal > 0.3){
+            /*if(horizontal > 0.3){
                  transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
             }
             else if(horizontal < -0.3){
                 transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
-            }
+            }*/
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
@@ -173,7 +172,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAnima.SetBool("isMoving", true);
         }
-        playerAnima.SetFloat("X", horizon * currentSpeed / maxSpeed);
-        playerAnima.SetFloat("Y", vertical);
+        playerAnima.SetFloat("X", horizontal * currentSpeed / maxSpeed);
+        playerAnima.SetFloat("Y", vertical * currentSpeed / maxSpeed);
     }
 }
