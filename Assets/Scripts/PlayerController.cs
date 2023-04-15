@@ -10,21 +10,18 @@ public class PlayerController : MonoBehaviour
     public float oxygen = 100f;
     public int pearlNumber = 0;
 
-    [SerializeField]private Volume v;
+    
     private Vignette vg;
     private ColorAdjustments ca;
-    [SerializeField] private ParticleSystem bubble;
-
     private bool RunOutOfOxygen = false;
 
-   [SerializeField]
-    private float maxSpeed = 5f;
-    [SerializeField]
-    private float lerpRate = 0.1f;
-    [SerializeField]
-    private float oxygenRate = 0.2f;
-    [SerializeField]
-    private float currentSpeed;
+    [SerializeField]private Volume v;
+    [SerializeField] private ParticleSystem bubble;
+    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float lerpRate = 0.1f;
+    [SerializeField] private float oxygenRate = 0.2f;
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private Animator playerAnima;
 
     private CharacterController characterController;
     private bool isAlive = true;
@@ -79,6 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         GetInput();
         PlayerMove();
+        PlayerAnimation();
         oxygen -= Time.deltaTime * oxygenRate;
     }
     void FixedUpdate()
@@ -102,9 +100,32 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if(lastDirection != Vector2.zero)
+            {
+                float angle = Vector2.Angle(lastDirection, direction);
+                if(angle < 90)
+                {
+                    //Quaternion targetRotation = Quaternion.Euler(0, 0, -angle);
+                    //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
+                    //transform.Rotate(0, 0, -angle);
+                    Vector3.RotateTowards(transform.right, new Vector3(direction.x, direction.y, 0), 1.0f * Time.deltaTime, 0.0f);
+                }
+            }
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
+        }
+    }
+
+    void PlayerAnimation()
+    {
+        if(currentSpeed <= 0.1f)
+        {
+            playerAnima.SetBool("isMoving", false);
+        }
+        else
+        {
+            playerAnima.SetBool("isMoving", true);
         }
     }
 }

@@ -5012,6 +5012,7 @@ MonoBehaviour:
   lerpRate: 0.2
   oxygenRate: 1
   currentSpeed: 0
+  playerAnima: {fileID: 2677379480027717108}
 --- !u!143 &1888653280189882703
 CharacterController:
   m_ObjectHideFlags: 0
