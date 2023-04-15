@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public float oxygen = 100f;
     public int pearlNumber = 0;
 
+    public float maxOxygen = 100f;
+    public int pipeLevel = 1;
+
     private float horizontal;
     private float vertical;
 
@@ -17,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private ParticleSystem bubble;
+    [SerializeField] private GameObject store;
+    [SerializeField] private GameObject birthP;
+
 
     
     private Vignette vg;
@@ -47,23 +53,26 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Color CAHighColor;
     [SerializeField] private Color CALowColor;
-
     [SerializeField] private LineRenderer softTube;
 
    
-
-
-
 
     void Start()
     {
         v.profile.TryGet(out vg);
         v.profile.TryGet(out ca);
         characterController = GetComponent<CharacterController>();
+        birthP = GameObject.Find("BirthPoint");
+        transform.position = birthP.transform.position;
+        oxygen = maxOxygen;
     }
 
     void Update()
     {
+        if(transform.position.y > 8)
+        {
+            PlayerDead();
+        }
         if(oxygen <= 0)
         {
             if(RunOutOfOxygen == false)
@@ -87,6 +96,7 @@ public class PlayerController : MonoBehaviour
         if(oxygen <=  -30){
             
             isAlive = false;
+            PlayerDead();
             return;
         }
 
@@ -104,8 +114,11 @@ public class PlayerController : MonoBehaviour
             }
         }
         GetInput();
-        PlayerMove();
-        PlayerAnimation();
+        if(isAlive)
+        {
+            PlayerMove();
+            PlayerAnimation();
+        }
         oxygen -= Time.deltaTime * oxygenRate;
 
 
@@ -114,8 +127,8 @@ public class PlayerController : MonoBehaviour
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
-        if(transform.position.y > -100 * GlobalData.Instance.pipeLevel && Mathf.Abs(transform.position.x) < 3){
-            oxygen = GlobalData.Instance.maxOxygen;
+        if(transform.position.y > -100 * pipeLevel && Mathf.Abs(transform.position.x) < 3){
+            oxygen = maxOxygen;
             softTube.positionCount = 5;
             maxSpeed = 6;
         }
@@ -193,8 +206,23 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, -0.1f, transform.localScale.z);
         }
     }
+    
     void PlayerDead()
     {
-        
+        isAlive = false;
+        mainCamera.gameObject.SetActive(false);
+        store.SetActive(true);
+        transform.position = birthP.transform.position;
+        oxygen = maxOxygen;
+        //play animation
+        //play sound
+    }
+    public void Dive()
+    {
+        isAlive = true;
+        mainCamera.gameObject.SetActive(true);
+        store.SetActive(false);
+        //play animation
+        //play sound
     }
 }
