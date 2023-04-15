@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     
     private Vignette vg;
     private ColorAdjustments ca;
+    [SerializeField] private ParticleSystem bubble;
+
+    
+
     private bool RunOutOfOxygen = false;
 
     [SerializeField]private Volume v;
@@ -26,6 +30,24 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private bool isAlive = true;
     private Vector2 lastDirection;
+
+
+    //these parameter controls the scene depends on player depth
+
+    [SerializeField] private Light sunLight;
+    [SerializeField] private Color cameraHighColor;
+    [SerializeField] private Color cameraLowColor;
+    [SerializeField] private Camera mainCamera;
+
+    [SerializeField] private Color CAHighColor;
+    [SerializeField] private Color CALowColor;
+
+    [SerializeField] private LineRenderer softTube;
+
+    public int TubeCount = 1;
+
+
+
 
     void Start()
     {
@@ -78,6 +100,29 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
         PlayerAnimation();
         oxygen -= Time.deltaTime * oxygenRate;
+
+
+        RenderSettings.fogColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
+        mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
+        sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
+        ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
+        
+        if(transform.position.y > -100 * TubeCount && Mathf.Abs(transform.position.x) < 3){
+            oxygen = 100;
+            softTube.positionCount = 5;
+            maxSpeed = 6;
+        }
+        else{
+            softTube.positionCount = 0;
+            maxSpeed = 3;
+        }
+
+        Vector3 midPoint1 = new Vector3(transform.position.x/2.0f,transform.position.y-1,0);
+        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,transform.position.y-0.6f,0);
+        Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,transform.position.y-0.8f,0);
+        softTube.SetPositions(new Vector3[] {transform.position,midPoint3,midPoint1,midPoint2,new Vector3(0,transform.position.y+2,0)});
+
+
     }
     void FixedUpdate()
     {

@@ -143,10 +143,6 @@ PrefabInstance:
       value: Rock_Wall_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 155872, guid: 40dc06fbccf632c4f99e14bbbba940d6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 155872, guid: 40dc06fbccf632c4f99e14bbbba940d6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -218,10 +214,6 @@ PrefabInstance:
     - target: {fileID: 119600, guid: b2b57a402c7604743818933e4fbfe565, type: 3}
       propertyPath: m_Name
       value: Rock_Sharp_l_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 119600, guid: b2b57a402c7604743818933e4fbfe565, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 499472, guid: b2b57a402c7604743818933e4fbfe565, type: 3}
       propertyPath: m_RootOrder
@@ -633,10 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Sharp_l_05 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 119600, guid: b2b57a402c7604743818933e4fbfe565, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 499472, guid: b2b57a402c7604743818933e4fbfe565, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -788,10 +776,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Wall_07
       objectReference: {fileID: 0}
-    - target: {fileID: 121866, guid: 114bf213afbf5ca458a3c2828b54f693, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 498224, guid: 114bf213afbf5ca458a3c2828b54f693, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -937,10 +921,6 @@ PrefabInstance:
       value: Rock_Wall_02
       objectReference: {fileID: 0}
     - target: {fileID: 155872, guid: 40dc06fbccf632c4f99e14bbbba940d6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 155872, guid: 40dc06fbccf632c4f99e14bbbba940d6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1061,10 +1041,6 @@ PrefabInstance:
     - target: {fileID: 123628, guid: 797d07db310e90a4e8b5eee596bc762f, type: 3}
       propertyPath: m_Name
       value: Rock_Round_l_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 123628, guid: 797d07db310e90a4e8b5eee596bc762f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 423820, guid: 797d07db310e90a4e8b5eee596bc762f, type: 3}
       propertyPath: m_RootOrder
