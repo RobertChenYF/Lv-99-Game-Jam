@@ -264,7 +264,7 @@ Material:
     - _OcclusionMapIntensity: 1
     - _OcclusionMapScale: 1
     - _OcclusionStrength: 1
-    - _OptionsTab: 0
+    - _OptionsTab: 1
     - _Outline: 3
     - _OutlineData: 1
     - _OutlineFadeMax: 2
