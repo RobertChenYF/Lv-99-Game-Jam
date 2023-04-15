@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private ColorAdjustments ca;
     [SerializeField] private ParticleSystem bubble;
 
+    
+
     private bool RunOutOfOxygen = false;
 
    [SerializeField]
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public int TubeCount = 1;
 
-    
+
 
 
     void Start()
@@ -99,11 +101,14 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
         oxygen -= Time.deltaTime * oxygenRate;
 
+
+        RenderSettings.fogColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
         mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
-        sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -3f + 3.0f;
+        sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
         
+
         Vector3 midPoint1 = new Vector3(transform.position.x/2.0f,transform.position.y-1,0);
         Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,transform.position.y-0.6f,0);
         Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,transform.position.y-0.8f,0);

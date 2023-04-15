@@ -20,6 +20,7 @@ Material:
   - _MK_SPECULAR_ISOTROPIC
   - _MK_SURFACE_TYPE_TRANSPARENT
   - _MK_THRESHOLD_MAP
+  - _MK_WORKFLOW_SPECULAR
   m_InvalidKeywords:
   - _FRESNELHIGHLIGHTS_ON
   - _RECEIVESHADOWS_ON
@@ -198,7 +199,7 @@ Material:
     - _BumpScale: 1
     - _ColorGrading: 0
     - _Contrast: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0.486
     - _DetailBlend: 0
     - _DetailMix: 0.5
     - _DetailNormalMapIntensity: 1
@@ -284,7 +285,7 @@ Material:
     - _VertexAnimation: 0
     - _VertexAnimationIntensity: 0.05
     - _VertexAnimationStutter: 0
-    - _Workflow: 0
+    - _Workflow: 1
     - _WrappedLighting: 0
     - _ZTest: 4
     - _ZWrite: 1
