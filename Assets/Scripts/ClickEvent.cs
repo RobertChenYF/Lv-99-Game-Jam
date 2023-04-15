@@ -13,15 +13,30 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
 
     [SerializeField]private int oxygenAdd = 10;
     [SerializeField]private int pearlCost = 20;
+    [SerializeField]private GameObject player;
+    [SerializeField]private GameObject boat;
+
+    private PlayerController playerController;
 
     public TMP_Text text;
     void Start()
     {
         text = dialogBox.GetComponentInChildren<TextMeshProUGUI>();
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        boat = GameObject.Find("boatRoot");
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        LevelUp();
+        if(this.name.Equals("Exit"))
+        {
+            playerController.Dive();
+            dialogBox.SetActive(false);
+        }
+        else
+        {
+            LevelUp();
+        }
     }
  
     public void OnPointerEnter(PointerEventData eventData)
@@ -41,16 +56,17 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         dialogBox.SetActive(false);
     }
     void LevelUp()
-    {
+    {   
         //升级
-        if(GlobalData.Instance.pearls >= pearlCost)
+        if(playerController.pearlNumber >= pearlCost)
         {
-            GlobalData.Instance.pearls -= pearlCost;
+            playerController.pearlNumber -= pearlCost;
             if(this.name.Equals("breathing tube")){
-                GlobalData.Instance.pipeLevel += 1;
+                playerController.pipeLevel += 1;
+                boat.transform.GetChild(playerController.pipeLevel-1).gameObject.SetActive(true);
             }
             else{
-                GlobalData.Instance.maxOxygen += oxygenAdd;
+                playerController.maxOxygen += oxygenAdd;
             }
             
             dialogBox.SetActive(false);
