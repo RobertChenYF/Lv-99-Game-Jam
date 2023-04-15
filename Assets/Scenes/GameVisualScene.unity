@@ -157,6 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -203,6 +208,11 @@ PrefabInstance:
     - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1888653280189882701, guid: b5612272fd0804d9ebb15fb92a850d6e,
@@ -839,6 +849,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
       propertyPath: m_Name
       value: Rock_Wall_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
       propertyPath: m_RootOrder

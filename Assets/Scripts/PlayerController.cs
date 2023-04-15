@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     void PlayerMove()
     {
         if(direction == Vector2.zero)
-        {
+        { 
             currentSpeed = Mathf.Lerp(currentSpeed, 0, lerpRate);
             characterController.Move(lastDirection * currentSpeed * Time.deltaTime);
         }
@@ -108,7 +108,9 @@ public class PlayerController : MonoBehaviour
                     //Quaternion targetRotation = Quaternion.Euler(0, 0, -angle);
                     //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
                     //transform.Rotate(0, 0, -angle);
-                    Vector3.RotateTowards(transform.right, new Vector3(direction.x, direction.y, 0), 1.0f * Time.deltaTime, 0.0f);
+                    //Vector3.RotateTowards(transform.right, new Vector3(direction.x, direction.y, 0), 1.0f * Time.deltaTime, 0.0f);
+                    
+                    transform.rotation = Quaternion.FromToRotation(transform.right, direction);
                 }
             }
             lastDirection = direction;
@@ -119,8 +121,9 @@ public class PlayerController : MonoBehaviour
 
     void PlayerAnimation()
     {
-        if(currentSpeed <= 0.1f)
+        if(currentSpeed <= 0.01f)
         {
+            transform.eulerAngles = new Vector3(0, 0, 0);
             playerAnima.SetBool("isMoving", false);
         }
         else
