@@ -110,6 +110,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     - _fishspeed: 1
+    - _randomSeed: -3.62
     - _twist: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
