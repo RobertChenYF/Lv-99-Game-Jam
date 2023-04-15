@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     
     private Vignette vg;
     private ColorAdjustments ca;
-    [SerializeField] private ParticleSystem bubble;
 
     
 
@@ -30,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private bool isAlive = true;
     private Vector2 lastDirection;
+    private float horizon;
+    private float vertical;
 
 
     //these parameter controls the scene depends on player depth
@@ -131,8 +132,8 @@ public class PlayerController : MonoBehaviour
 
     void GetInput()
     {
-        float horizon = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        horizon = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
         direction = new Vector2(horizon, vertical);
         direction.Normalize();
     }
@@ -145,19 +146,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(lastDirection != Vector2.zero)
-            {
-                float angle = Vector2.Angle(lastDirection, direction);
-                if(angle < 90)
-                {
-                    //Quaternion targetRotation = Quaternion.Euler(0, 0, -angle);
-                    //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
-                    //transform.Rotate(0, 0, -angle);
-                    //Vector3.RotateTowards(transform.right, new Vector3(direction.x, direction.y, 0), 1.0f * Time.deltaTime, 0.0f);
-                    
-                    transform.rotation = Quaternion.FromToRotation(transform.right, direction);
-                }
-            }
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
@@ -175,5 +163,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAnima.SetBool("isMoving", true);
         }
+        playerAnima.SetFloat("X", horizon * currentSpeed / maxSpeed);
+        playerAnima.SetFloat("Y", vertical);
     }
 }
