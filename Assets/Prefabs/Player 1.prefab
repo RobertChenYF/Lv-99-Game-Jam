@@ -5005,10 +5005,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  oxygen: 100
+  oxygen: 70
   pearlNumber: 0
+  maxOxygen: 70
+  pipeLevel: 1
   oneBreathe: {fileID: 8300000, guid: e85b0e7fac14347d3b3990614d27ef16, type: 3}
   bubble: {fileID: 1888653279815528631}
+  store: {fileID: 0}
+  birthP: {fileID: 0}
   head: {fileID: 0}
   v: {fileID: 0}
   maxSpeed: 10

@@ -112,8 +112,13 @@ public class PlayerController : MonoBehaviour
             vg.intensity.value =  0.1f;
             ca.saturation.value = 0;
             }
+            if(softTube.positionCount == 0){
+                vg.intensity.value = Mathf.Sin(Time.time*2.0f) * 0.1f + 0.1f;
+            }
+            
         }
         GetInput();
+        
         if(isAlive)
         {
             PlayerMove();
