@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     public float oxygen = 100f;
     public int pearlNumber = 0;
 
+    private float horizontal;
+    private float vertical;
+
+
+
     
     private Vignette vg;
     private ColorAdjustments ca;
@@ -20,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private bool RunOutOfOxygen = false;
 
     [SerializeField]private Volume v;
-    [SerializeField] private ParticleSystem bubble;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float lerpRate = 0.1f;
     [SerializeField] private float oxygenRate = 0.2f;
@@ -131,9 +135,9 @@ public class PlayerController : MonoBehaviour
 
     void GetInput()
     {
-        float horizon = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        direction = new Vector2(horizon, vertical);
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+        direction = new Vector2(horizontal, vertical);
         direction.Normalize();
     }
     void PlayerMove()
@@ -144,19 +148,12 @@ public class PlayerController : MonoBehaviour
             characterController.Move(lastDirection * currentSpeed * Time.deltaTime);
         }
         else
-        {
-            if(lastDirection != Vector2.zero)
-            {
-                float angle = Vector2.Angle(lastDirection, direction);
-                if(angle < 90)
-                {
-                    //Quaternion targetRotation = Quaternion.Euler(0, 0, -angle);
-                    //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
-                    //transform.Rotate(0, 0, -angle);
-                    //Vector3.RotateTowards(transform.right, new Vector3(direction.x, direction.y, 0), 1.0f * Time.deltaTime, 0.0f);
-                    
-                    transform.rotation = Quaternion.FromToRotation(transform.right, direction);
-                }
+        {   
+            if(horizontal > 0.3){
+                 transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
+            }
+            else if(horizontal < -0.3){
+                transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
             }
             lastDirection = direction;
             characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
