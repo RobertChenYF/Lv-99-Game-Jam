@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LineRenderer softTube;
 
-    public int TubeCount = 1;
+   
 
 
 
@@ -111,8 +111,8 @@ public class PlayerController : MonoBehaviour
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
-        if(transform.position.y > -100 * TubeCount && Mathf.Abs(transform.position.x) < 3){
-            oxygen = 100;
+        if(transform.position.y > -100 * GlobalData.Instance.pipeLevel && Mathf.Abs(transform.position.x) < 3){
+            oxygen = GlobalData.Instance.maxOxygen;
             softTube.positionCount = 5;
             maxSpeed = 6;
         }
