@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
     private bool isAlive = true;
+    private Vector2 lastDirection;
 
     void Start()
     {
@@ -80,6 +81,10 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
         oxygen -= Time.deltaTime * oxygenRate;
     }
+    void FixedUpdate()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
 
     void GetInput()
     {
@@ -93,10 +98,13 @@ public class PlayerController : MonoBehaviour
         if(direction == Vector2.zero)
         {
             currentSpeed = Mathf.Lerp(currentSpeed, 0, lerpRate);
-            characterController.Move(transform.right * currentSpeed * Time.deltaTime);
-            return;
+            characterController.Move(lastDirection * currentSpeed * Time.deltaTime);
         }
-        characterController.Move(direction * maxSpeed * Time.deltaTime);
-        currentSpeed = maxSpeed;
+        else
+        {
+            lastDirection = direction;
+            characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
+            currentSpeed = maxSpeed;
+        }
     }
 }
