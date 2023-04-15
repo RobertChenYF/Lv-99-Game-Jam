@@ -107,7 +107,15 @@ public class PlayerController : MonoBehaviour
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
         
-        
+        if(transform.position.y > -100 * TubeCount && Mathf.Abs(transform.position.x) < 3){
+            oxygen = 100;
+            softTube.positionCount = 5;
+            maxSpeed = 6;
+        }
+        else{
+            softTube.positionCount = 0;
+            maxSpeed = 3;
+        }
 
         Vector3 midPoint1 = new Vector3(transform.position.x/2.0f,transform.position.y-1,0);
         Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,transform.position.y-0.6f,0);
