@@ -112,8 +112,13 @@ public class PlayerController : MonoBehaviour
             vg.intensity.value =  0.1f;
             ca.saturation.value = 0;
             }
+            if(softTube.positionCount == 0){
+                vg.intensity.value = Mathf.Sin(Time.time*2.0f) * 0.1f + 0.1f;
+            }
+            
         }
         GetInput();
+        
         if(isAlive)
         {
             PlayerMove();
@@ -214,6 +219,7 @@ public class PlayerController : MonoBehaviour
         store.SetActive(true);
         transform.position = birthP.transform.position;
         oxygen = maxOxygen;
+        RenderSettings.fog = false;
         //play animation
         //play sound
     }
@@ -221,6 +227,7 @@ public class PlayerController : MonoBehaviour
     {
         isAlive = true;
         mainCamera.gameObject.SetActive(true);
+        RenderSettings.fog = true;
         store.SetActive(false);
         //play animation
         //play sound

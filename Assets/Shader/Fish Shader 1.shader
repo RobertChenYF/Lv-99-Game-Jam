@@ -324,7 +324,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -862,7 +862,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -1170,7 +1170,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -1463,7 +1463,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -1756,7 +1756,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -2030,7 +2030,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -2385,7 +2385,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -2822,7 +2822,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -3075,7 +3075,7 @@ Shader "Fish Shader 1"
 
 				float mulTime13 = _TimeParameters.x * _fishspeed;
 				float4 transform51 = mul(GetObjectToWorldMatrix(),float4( 0,0,0,1 ));
-				float2 temp_cast_0 = (( transform51.x + transform51.y )).xx;
+				float2 temp_cast_0 = (( ( transform51.x + transform51.y + transform51.z ) * 3.0 )).xx;
 				float dotResult4_g1 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
 				float lerpResult10_g1 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g1 ) * 43758.55 ) ));
 				float4 appendResult23 = (float4(( sin( ( ( v.vertex.xyz.z / _twist ) + mulTime13 + lerpResult10_g1 ) ) / 1.0 ) , 0.0 , 0.0 , 0.0));
@@ -3241,11 +3241,12 @@ Node;AmplifyShaderEditor.SimpleTimeNode;13;-390.6776,146.5;Inherit;False;1;0;FLO
 Node;AmplifyShaderEditor.RangedFloatNode;16;-575.8396,173.129;Inherit;False;Property;_fishspeed;fish speed;0;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;23;300.7965,-20.18027;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.PosVertexDataNode;11;-612.3882,-165.6759;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ObjectToWorldTransfNode;51;-578.5701,270.4357;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;52;-389.6163,302.1482;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;50;-223.1254,255.9007;Inherit;False;Random Range;-1;;1;7b754edb8aebbfb4a9ace907af661cfc;0;3;1;FLOAT2;0,0;False;2;FLOAT;-1;False;3;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;52;-389.6163,302.1482;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SinOpNode;15;-23.45444,-86.14725;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;21;-39.51933,107.2334;Inherit;False;Constant;_Float1;Float 1;1;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ObjectToWorldTransfNode;51;-636.5701,284.4357;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;50;-199.1254,247.9007;Inherit;False;Random Range;-1;;1;7b754edb8aebbfb4a9ace907af661cfc;0;3;1;FLOAT2;0,0;False;2;FLOAT;-1;False;3;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;53;-260.308,424.336;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;3;False;1;FLOAT;0
 WireConnection;12;0;17;0
 WireConnection;12;1;13;0
 WireConnection;12;2;50;0
@@ -3259,7 +3260,9 @@ WireConnection;13;0;16;0
 WireConnection;23;0;20;0
 WireConnection;52;0;51;1
 WireConnection;52;1;51;2
-WireConnection;50;1;52;0
+WireConnection;52;2;51;3
 WireConnection;15;0;12;0
+WireConnection;50;1;53;0
+WireConnection;53;0;52;0
 ASEEND*/
-//CHKSM=4043E1F103459FEC05E2A24618B9CD01E18EB6C6
+//CHKSM=FD8933A5F6F02AB677B2046341A2A30568C57757
