@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5984327906407395243}
   - component: {fileID: 5984327906406364579}
   - component: {fileID: 6046373823694974733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: scifi-tube-long
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331310724183436000, guid: 37693845f4dc10146a05af511c5b2103,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3103449002871582810, guid: 37693845f4dc10146a05af511c5b2103,
         type: 3}
