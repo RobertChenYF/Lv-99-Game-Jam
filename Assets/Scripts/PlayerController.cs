@@ -30,6 +30,20 @@ public class PlayerController : MonoBehaviour
     private bool isAlive = true;
     private Vector2 lastDirection;
 
+
+    //these parameter controls the scene depends on player depth
+
+    [SerializeField] private Light sunLight;
+    [SerializeField] private Color cameraHighColor;
+    [SerializeField] private Color cameraLowColor;
+    [SerializeField] private Camera mainCamera;
+
+    [SerializeField] private Color CAHighColor;
+    [SerializeField] private Color CALowColor;
+
+
+
+
     void Start()
     {
         v.profile.TryGet(out vg);
@@ -80,6 +94,10 @@ public class PlayerController : MonoBehaviour
         GetInput();
         PlayerMove();
         oxygen -= Time.deltaTime * oxygenRate;
+
+        mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
+        sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -3f + 3.0f;
+        ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
     }
     void FixedUpdate()
     {
