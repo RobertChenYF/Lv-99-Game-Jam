@@ -219,6 +219,7 @@ public class PlayerController : MonoBehaviour
         store.SetActive(true);
         transform.position = birthP.transform.position;
         oxygen = maxOxygen;
+        RenderSettings.fog = false;
         //play animation
         //play sound
     }
@@ -226,6 +227,7 @@ public class PlayerController : MonoBehaviour
     {
         isAlive = true;
         mainCamera.gameObject.SetActive(true);
+        RenderSettings.fog = true;
         store.SetActive(false);
         //play animation
         //play sound
