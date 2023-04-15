@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    [SerializeField] private AudioClip oneBreathe;
+
 
     [SerializeField] private ParticleSystem bubble;
     [SerializeField] private GameObject store;
@@ -83,6 +85,7 @@ public class PlayerController : MonoBehaviour
             em.enabled = false;
             
                 //play sound
+                gameObject.GetComponent<AudioSource>().PlayOneShot(oneBreathe);
             }
             //change vignette
             maxSpeed = 2 + (oxygen/30.0f);
@@ -102,7 +105,7 @@ public class PlayerController : MonoBehaviour
             {
                 
             RunOutOfOxygen = false;
-
+            gameObject.GetComponent<AudioSource>().Play();
             var em = bubble.emission;
             em.enabled = true;
                         maxSpeed = 2;
