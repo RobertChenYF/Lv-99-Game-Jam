@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private ColorAdjustments ca;
     [SerializeField] private ParticleSystem bubble;
 
-    
+    [SerializeField] private Transform head;
 
     private bool RunOutOfOxygen = false;
 
@@ -121,10 +121,10 @@ public class PlayerController : MonoBehaviour
             maxSpeed = 3;
         }
 
-        Vector3 midPoint1 = new Vector3(transform.position.x/2.0f,transform.position.y-1,0);
-        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,transform.position.y-0.6f,0);
-        Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,transform.position.y-0.8f,0);
-        softTube.SetPositions(new Vector3[] {transform.position,midPoint3,midPoint1,midPoint2,new Vector3(0,transform.position.y+2,0)});
+        Vector3 midPoint1 = new Vector3(head.position.x/2.0f,head.position.y-1,0);
+        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,head.position.y-0.6f,0);
+        Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,head.position.y-0.8f,0);
+        softTube.SetPositions(new Vector3[] {head.position,midPoint3,midPoint1,midPoint2,new Vector3(0,head.position.y+2,0)});
 
 
     }
