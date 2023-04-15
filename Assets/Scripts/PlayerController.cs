@@ -41,7 +41,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Color CAHighColor;
     [SerializeField] private Color CALowColor;
 
+    [SerializeField] private LineRenderer softTube;
 
+    public int TubeCount = 1;
+
+    
 
 
     void Start()
@@ -98,6 +102,14 @@ public class PlayerController : MonoBehaviour
         mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
         sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -3f + 3.0f;
         ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
+        
+        
+        Vector3 midPoint1 = new Vector3(transform.position.x/2.0f,transform.position.y-1,0);
+        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,transform.position.y-0.6f,0);
+        Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,transform.position.y-0.8f,0);
+        softTube.SetPositions(new Vector3[] {transform.position,midPoint3,midPoint1,midPoint2,new Vector3(0,transform.position.y+2,0)});
+
+
     }
     void FixedUpdate()
     {
