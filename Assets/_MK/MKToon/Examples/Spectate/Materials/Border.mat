@@ -227,7 +227,11 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD
     - _AlbedoColor: {r: 0.5188679, g: 0.49994144, b: 0.39486173, a: 1}
+=======
+    - _AlbedoColor: {r: 0.8867924, g: 0.83401567, b: 0.78138125, a: 1}
+>>>>>>> main
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -237,6 +241,10 @@ Material:
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
+<<<<<<< HEAD
     - _SpecularColor: {r: 0.33962262, g: 0.27767885, b: 0.27767885, a: 1}
+=======
+    - _SpecularColor: {r: 0.33962262, g: 0.29845646, b: 0.25760055, a: 1}
+>>>>>>> main
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []

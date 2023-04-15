@@ -157,6 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -205,6 +210,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1888653279354060283, guid: b5612272fd0804d9ebb15fb92a850d6e,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1888653280189882701, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
       propertyPath: m_Name
@@ -225,8 +235,19 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1888653280189882702, guid: b5612272fd0804d9ebb15fb92a850d6e,
+        type: 3}
+      propertyPath: playerAnima
+      value: 
+      objectReference: {fileID: 437276811}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5612272fd0804d9ebb15fb92a850d6e, type: 3}
+--- !u!95 &437276811 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2677379480027717108, guid: b5612272fd0804d9ebb15fb92a850d6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 368352324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595481262
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +849,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
       propertyPath: m_Name
       value: Rock_Wall_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3c6f2112062bf324ab046c388ac2e402, type: 3}
       propertyPath: m_RootOrder

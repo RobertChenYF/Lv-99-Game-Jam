@@ -6,6 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< HEAD
       value: 070702500602505a580b5e2113775c114215412e7870746079281c32e7e66269
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -13,13 +14,68 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-2:
       value: 07015507010d0c0c0f0d5a7643775912404f4c73287a2536797e4a66b4e46d3d
+=======
+<<<<<<< HEAD
+      value: 5a0356505d565803580d587445755944444f4178287c70332c714e37e6b33261
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 53540054030d5b590c0c5b7313260b444f161b7f2e797161747b1830b4b86d3a
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 560704505300585f5b5d0e7443770b134e4f4c7c2a782064747f4e37bbb3666f
+=======
+      value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 5755525701500f0b0b0a09274773064445154b7f7b7f2564282a4830e1b4313d
+>>>>>>> main
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 5b070554070c0d0a0c5f5d7311775944174f4c7a792a23357a2f1f60b4e16161
+>>>>>>> main
       flags: 0
     RecentlyUsedSceneGuid-3:
+<<<<<<< HEAD
       value: 560704505300585f5b5d0e7443770b134e4f4c7c2a782064747f4e37bbb3666f
       flags: 0
     RecentlyUsedSceneGuid-4:
       value: 5255045555065a5d590d582416715e44471540297e79243574701f6bb0b5646c
+=======
+      value: 07015507010d0c0c0f0d5a7643775912404f4c73287a2536797e4a66b4e46d3d
       flags: 0
+    RecentlyUsedSceneGuid-4:
+<<<<<<< HEAD
+      value: 5157520201035f025d0f5b7616770644414e1c78782d20332f7c4c63bbb96c6d
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5b070554070c0d0a0c5f5d7311775944174f4c7a792a23357a2f1f60b4e16161
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5b090d02560c5f0c5a5a0f7442220b44154e4c782a7f75662b2b4d6bb6e3633e
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 070702500602505a580b5e2113775c114215412e7870746079281c32e7e66269
+      flags: 0
+=======
+      value: 0005525107015a025c0c5f271525064444151d7f2a7b7f6479794e32e1b8326c
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 560704505300585f5b5d0e7443770b134e4f4c7c2a782064747f4e37bbb3666f
+>>>>>>> main
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5157520201035f025d0f5b7616770644414e1c78782d20332f7c4c63bbb96c6d
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 0603015053055f580b56087a48765a441215407b7e2b7366747a1c63e1b2326c
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 070702500602505a580b5e2113775c114215412e7870746079281c32e7e66269
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5b090d02560c5f0c5a5a0f7442220b44154e4c782a7f75662b2b4d6bb6e3633e
+      flags: 0
+>>>>>>> main
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
@@ -28,7 +84,11 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
+<<<<<<< HEAD
   m_DesiredImportWorkerCount: 3
+=======
+  m_DesiredImportWorkerCount: 2
+>>>>>>> main
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
