@@ -26,14 +26,20 @@ public class EndGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(endGameCam.activeSelf == false && Vector3.Distance(this.transform.position, player.transform.position) < 5f){
-            endGameCam.SetActive(true);
+        if(bubbleEmitter.activeSelf == true && Vector3.Distance(this.transform.position, player.transform.position) < 8f){
+            
+            Invoke("MyFunction", 3);
             playerController.enabled = false;
             StartCoroutine(colorLerp());
             bubbleEmitter.SetActive(false);
             StartCoroutine(playerMovement());
+            StartCoroutine(playerMovementXto0());
 
         }
+    }
+
+    void MyFunction(){
+        endGameCam.SetActive(true);
     }
 
     IEnumerator colorLerp(){
@@ -45,9 +51,17 @@ public class EndGameController : MonoBehaviour
         }
     }
 
+
     IEnumerator playerMovement(){
         while(true){
             player.transform.position -= new Vector3 (0.0f, 0.02f, 0.0f);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator playerMovementXto0(){
+        while(Mathf.Abs(player.transform.position.x) > 0.02f ){
+            player.transform.position -= new Vector3 (0.02f * Mathf.Sign(player.transform.position.x), 0.0f, 0.0f);
             yield return new WaitForSeconds(0.01f);
         }
     }
