@@ -61,6 +61,7 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         if(playerController.pearlNumber >= pearlCost)
         {
             playerController.pearlNumber -= pearlCost;
+            SoundManager.Instance.PlayLevelUp();
             if(this.name.Equals("breathing tube")){
                 playerController.pipeLevel += 1;
                 boat.transform.GetChild(playerController.pipeLevel-1).gameObject.SetActive(true);
