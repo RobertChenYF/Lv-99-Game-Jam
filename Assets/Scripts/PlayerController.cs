@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem bubble;
     [SerializeField] private GameObject store;
     [SerializeField] private GameObject birthP;
+    [SerializeField] private Image traMask;
 
 
     
@@ -71,7 +73,11 @@ public class PlayerController : MonoBehaviour
     {
         if(transform.position.y > 7)
         {
-            PlayerDead();
+            GoBoat();
+            traMask.enabled = true;
+            traMask.color = Color.white;
+            StopCoroutine("FadeOut");
+            StartCoroutine("FadeOut", Color.white);
         }
         if(oxygen <= 0)
         {
@@ -211,22 +217,52 @@ public class PlayerController : MonoBehaviour
     
     void PlayerDead()
     {
+        GoBoat();
+
+        //死亡转场
+        StopCoroutine("FadeOut");
+        traMask.color = Color.black;
+        StartCoroutine("FadeOut", Color.black);
+
+        //play sound
+    }
+
+    private void GoBoat()
+    {
         isAlive = false;
         mainCamera.gameObject.SetActive(false);
         store.SetActive(true);
         transform.position = birthP.transform.position;
         oxygen = maxOxygen;
         RenderSettings.fog = false;
-        //play animation
-        //play sound
     }
+
     public void Dive()
     {
+        //下潜转场
+        StopCoroutine("FadeOut");
+        traMask.color = Color.white;
+        StartCoroutine("FadeOut", Color.white);
+
         isAlive = true;
         mainCamera.gameObject.SetActive(true);
         RenderSettings.fog = true;
         store.SetActive(false);
-        //play animation
         //play sound
+    }
+
+    IEnumerator FadeOut(Color initalColor)
+    {
+        float t = 0;
+        if(initalColor == Color.white)
+            yield return new WaitForSeconds(0.3f);
+        else
+            yield return new WaitForSeconds(1f);
+        while(t < 2)
+        {
+            t += Time.deltaTime;
+            traMask.color = Color.Lerp(initalColor, Color.clear, t/2);
+            yield return null;
+        }
     }
 }
