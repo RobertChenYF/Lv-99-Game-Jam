@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    private Vector2 moveDirection = Vector2.zero;
 
     [SerializeField] private AudioClip oneBreathe;
 
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
     private bool isAlive = true;
-    private Vector2 lastDirection;
+    private Vector2 lastDirection;//最后一次不为0的 输入的方向
 
 
     //these parameter controls the scene depends on player depth
@@ -199,7 +200,9 @@ public class PlayerController : MonoBehaviour
             //PlayerRotate();
             playerAnima.SetBool("isMoving", true);
         }
-        playerAnima.SetFloat("X", horizontal * currentSpeed / maxSpeed);
+        moveDirection.x = Mathf.Lerp(moveDirection.x, horizontal, lerpRate);
+        moveDirection.y = Mathf.Lerp(moveDirection.y, vertical, lerpRate);
+        playerAnima.SetFloat("X", moveDirection.x * currentSpeed / maxSpeed);
         playerAnima.SetFloat("Y", vertical * currentSpeed / maxSpeed);
     }
 

@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
-  oxygenAdd: 50
+  oxygenAdd: 80
   pearlCost: 5
   player: {fileID: 0}
   boat: {fileID: 0}
@@ -1467,7 +1467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5096187875153061456
 Transform:
   m_ObjectHideFlags: 0
