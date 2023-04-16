@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveDirection = Vector2.zero;
 
     [SerializeField] private AudioClip oneBreathe;
+    [SerializeField] private AudioClip getPearl;
 
 
     [SerializeField] private ParticleSystem bubble;
@@ -266,5 +267,9 @@ public class PlayerController : MonoBehaviour
             traMask.color = Color.Lerp(initalColor, Color.clear, t/2);
             yield return null;
         }
+    }
+    public void GetPearls()
+    {
+        //AudioManager.Instance.PlaySound("GetPearl");
     }
 }
