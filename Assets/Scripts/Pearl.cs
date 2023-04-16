@@ -9,6 +9,7 @@ public class Pearl : MonoBehaviour
         if(other.tag == "Player")
         {
             other.GetComponent<PlayerController>().pearlNumber++;
+            SoundManager.Instance.PlayGetPearl();
             Destroy(gameObject);
         }
     }

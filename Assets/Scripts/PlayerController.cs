@@ -10,16 +10,22 @@ public class PlayerController : MonoBehaviour
     public Vector2 direction;
     public float oxygen = 100f;
     public int pearlNumber = 0;
+    public bool isEnd = false;
 
     public float maxOxygen = 100f;
     public int pipeLevel = 1;
 
     private float horizontal;
     private float vertical;
-    public Vector2 moveDirection = Vector2.zero;
+    private Vector2 moveDirection = Vector2.zero;
+    private AudioSource breathAudio;
+    [SerializeField]private AudioSource BGM;
 
     [SerializeField] private AudioClip oneBreathe;
-    [SerializeField] private AudioClip getPearl;
+    [SerializeField] private AudioClip longBreath;
+    [SerializeField] private AudioClip diveBGM;
+    [SerializeField] private AudioClip storeBGM;
+
 
 
     [SerializeField] private ParticleSystem bubble;
@@ -66,6 +72,7 @@ public class PlayerController : MonoBehaviour
         v.profile.TryGet(out vg);
         v.profile.TryGet(out ca);
         characterController = GetComponent<CharacterController>();
+        breathAudio = GetComponent<AudioSource>();
         birthP = GameObject.Find("BirthPoint");
         transform.position = birthP.transform.position;
         oxygen = maxOxygen;
@@ -73,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(isEnd) return;
+
         if(transform.position.y > 7)
         {
             GoBoat();
@@ -80,6 +89,10 @@ public class PlayerController : MonoBehaviour
             traMask.color = Color.white;
             StopCoroutine("FadeOut");
             StartCoroutine("FadeOut", Color.white);
+        }
+        if(Input.GetKeyDown(KeyCode.R)){
+            transform.position = birthP.transform.position;
+            return;
         }
         if(oxygen <= 0)
         {
@@ -93,7 +106,7 @@ public class PlayerController : MonoBehaviour
             em.enabled = false;
             
                 //play sound
-                gameObject.GetComponent<AudioSource>().PlayOneShot(oneBreathe);
+                breathAudio.PlayOneShot(oneBreathe);
             }
             //change vignette
             maxSpeed = 2 + (oxygen/30.0f);
@@ -113,7 +126,7 @@ public class PlayerController : MonoBehaviour
             {
                 
             RunOutOfOxygen = false;
-            gameObject.GetComponent<AudioSource>().Play();
+            //breathAudio.PlayOneShot(longBreath);
             var em = bubble.emission;
             em.enabled = true;
                         maxSpeed = 2;
@@ -232,12 +245,16 @@ public class PlayerController : MonoBehaviour
 
     private void GoBoat()
     {
+        GlobalData.Instance.pearls = pearlNumber;
         isAlive = false;
         mainCamera.gameObject.SetActive(false);
         store.SetActive(true);
         transform.position = birthP.transform.position;
         oxygen = maxOxygen;
         RenderSettings.fog = false;
+        breathAudio.Pause();
+        BGM.clip = storeBGM;
+        BGM.Play();
     }
 
     public void Dive()
@@ -247,6 +264,9 @@ public class PlayerController : MonoBehaviour
         traMask.color = Color.white;
         StartCoroutine("FadeOut", Color.white);
 
+        breathAudio.PlayDelayed(2);
+        BGM.clip = diveBGM;
+        BGM.Play();
         isAlive = true;
         mainCamera.gameObject.SetActive(true);
         RenderSettings.fog = true;
@@ -268,8 +288,8 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
-    public void GetPearls()
+    public void EndGame()
     {
-        //AudioManager.Instance.PlaySound("GetPearl");
+        playerAnima.SetBool("isEnd", true);
     }
 }

@@ -5,8 +5,8 @@ public class GlobalData
 {
     private GlobalData()
     {
-        pearls = 20;
-        maxOxygen = 100;
+        pearls = 0;
+        maxOxygen = 80;
         pipeLevel = 1;
     }
     // 使用单例模式，设置一个全局单例对象
