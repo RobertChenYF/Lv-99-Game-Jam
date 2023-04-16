@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 direction;
     public float oxygen = 100f;
     public int pearlNumber = 0;
+    public bool isEnd = false;
 
     public float maxOxygen = 100f;
     public int pipeLevel = 1;
@@ -79,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(isEnd) return;
+
         if(transform.position.y > 7)
         {
             GoBoat();
@@ -86,6 +89,10 @@ public class PlayerController : MonoBehaviour
             traMask.color = Color.white;
             StopCoroutine("FadeOut");
             StartCoroutine("FadeOut", Color.white);
+        }
+        if(Input.GetKeyDown(KeyCode.R)){
+            transform.position = birthP.transform.position;
+            return;
         }
         if(oxygen <= 0)
         {
@@ -281,8 +288,8 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
-    public void GetPearls()
+    public void EndGame()
     {
-        //AudioManager.Instance.PlaySound("GetPearl");
+        playerAnima.SetBool("isEnd", true);
     }
 }

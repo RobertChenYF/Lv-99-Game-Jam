@@ -34,7 +34,13 @@ public class EndGameController : MonoBehaviour
             bubbleEmitter.SetActive(false);
             StartCoroutine(playerMovement());
             StartCoroutine(playerMovementXto0());
-
+            playerController.isEnd = true;
+            player.transform.localScale = new Vector3(0.1f, -0.1f, 0.1f);
+            playerController.EndGame();
+            
+        }
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
         }
     }
 
