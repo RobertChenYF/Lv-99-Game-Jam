@@ -355,7 +355,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord8.xy = v.texcoord.xy;
 				
@@ -928,7 +928,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord2.xy = v.ase_texcoord.xy;
 				
@@ -1272,7 +1272,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord2.xy = v.ase_texcoord.xy;
 				
@@ -1601,7 +1601,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord4.xy = v.texcoord0.xy;
 				
@@ -1929,7 +1929,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord2.xy = v.ase_texcoord.xy;
 				
@@ -2239,7 +2239,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord4.xy = v.ase_texcoord.xy;
 				
@@ -2630,7 +2630,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord8.xy = v.texcoord.xy;
 				
@@ -3102,7 +3102,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord.xy = v.ase_texcoord.xy;
 				
@@ -3391,7 +3391,7 @@ Shader "algae cutoff shader"
 				float simplePerlin2D29 = snoise( appendResult31.xy );
 				simplePerlin2D29 = simplePerlin2D29*0.5 + 0.5;
 				float temp_output_17_0 = sin( ( _TimeParameters.x + temp_output_28_0 + simplePerlin2D29 ) );
-				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , temp_output_17_0 , 0.0));
+				float4 appendResult13 = (float4(temp_output_17_0 , 0.0 , ( temp_output_17_0 * 0.3 ) , 0.0));
 				
 				o.ase_texcoord.xy = v.ase_texcoord.xy;
 				
@@ -3560,12 +3560,13 @@ Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;367.9948,1.933548;Float;F
 Node;AmplifyShaderEditor.SimpleAddOpNode;18;-382,343.5;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;28;-467.8643,426.9904;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;27;-626.8643,393.9904;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.DynamicAppendNode;13;-89,216.5;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SinOpNode;17;-254,255.5;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.PosVertexDataNode;19;-839.8964,470.8964;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.WorldPosInputsNode;30;-849.2747,39.31906;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.NoiseGeneratorNode;29;-575.2747,218.3191;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;31;-656.2747,74.31906;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;32;-215.178,372.3689;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.3;False;1;FLOAT;0
+Node;AmplifyShaderEditor.DynamicAppendNode;13;-55,216.5;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 WireConnection;11;0;10;0
 WireConnection;23;0;13;0
 WireConnection;23;1;28;0
@@ -3578,11 +3579,12 @@ WireConnection;18;1;28;0
 WireConnection;18;2;29;0
 WireConnection;28;0;27;0
 WireConnection;27;0;19;2
-WireConnection;13;0;17;0
-WireConnection;13;2;17;0
 WireConnection;17;0;18;0
 WireConnection;29;0;31;0
 WireConnection;31;0;30;1
 WireConnection;31;1;30;2
+WireConnection;32;0;17;0
+WireConnection;13;0;17;0
+WireConnection;13;2;32;0
 ASEEND*/
-//CHKSM=5027D3D974A34AEC01575A664B2BAFFC975FA52A
+//CHKSM=CA2F61692182E72F33FDE639D3A0C3A7FA9F8E04
