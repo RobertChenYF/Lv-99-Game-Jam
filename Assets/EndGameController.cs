@@ -34,7 +34,7 @@ public class EndGameController : MonoBehaviour
             bubbleEmitter.SetActive(false);
             StartCoroutine(playerMovement());
             StartCoroutine(playerMovementXto0());
-
+            
         }
     }
 

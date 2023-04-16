@@ -951,7 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
   oxygenAdd: 10
-  pearlCost: 20
+  pearlCost: 4
   player: {fileID: 0}
   boat: {fileID: 0}
   text: {fileID: 0}
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
   oxygenAdd: 10
-  pearlCost: 8
+  pearlCost: 4
   player: {fileID: 0}
   boat: {fileID: 0}
   text: {fileID: 0}
