@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private float horizontal;
     private float vertical;
-    private Vector2 moveDirection = Vector2.zero;
+    public Vector2 moveDirection = Vector2.zero;
 
     [SerializeField] private AudioClip oneBreathe;
 
@@ -170,6 +170,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         direction = new Vector2(horizontal, vertical);
+        moveDirection = Vector2.Lerp(moveDirection, direction, 0.015f);
         direction.Normalize();
     }
     void PlayerMove()
@@ -200,10 +201,8 @@ public class PlayerController : MonoBehaviour
             //PlayerRotate();
             playerAnima.SetBool("isMoving", true);
         }
-        moveDirection.x = Mathf.Lerp(moveDirection.x, horizontal, lerpRate);
-        moveDirection.y = Mathf.Lerp(moveDirection.y, vertical, lerpRate);
         playerAnima.SetFloat("X", moveDirection.x * currentSpeed / maxSpeed);
-        playerAnima.SetFloat("Y", vertical * currentSpeed / maxSpeed);
+        playerAnima.SetFloat("Y", moveDirection.y * currentSpeed / maxSpeed);
     }
 
     void PlayerRotate()
