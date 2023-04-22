@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip longBreath;
     [SerializeField] private AudioClip diveBGM;
     [SerializeField] private AudioClip storeBGM;
+    [SerializeField] private GameObject projectilePrefab;
 
 
 
@@ -43,10 +44,13 @@ public class PlayerController : MonoBehaviour
     private bool RunOutOfOxygen = false;
 
     [SerializeField]private Volume v;
-    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float maxSpeed = 3f;
     [SerializeField] private float lerpRate = 0.1f;
     [SerializeField] private float oxygenRate = 0.2f;
+    [SerializeField] private float rushSpeed = 10f;
+    [SerializeField] private float rushOxygenRate = 1f;//冲刺时消耗的氧气速率，叠加在 原有氧气消耗上
     [SerializeField] private float currentSpeed;
+    [SerializeField] private int projectileNumber = 0;
     [SerializeField] private Animator playerAnima;
 
     private CharacterController characterController;
@@ -80,9 +84,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(isEnd) return;
+        if (isEnd) return;
 
-        if(transform.position.y > 7)
+        if (transform.position.y > 7)
         {
             GoBoat();
             traMask.enabled = true;
@@ -90,90 +94,117 @@ public class PlayerController : MonoBehaviour
             StopCoroutine("FadeOut");
             StartCoroutine("FadeOut", Color.white);
         }
-        if(Input.GetKeyDown(KeyCode.R)){
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             transform.position = birthP.transform.position;
             return;
         }
-        if(oxygen <= 0)
+        if (oxygen <= 0)
         {
-            if(RunOutOfOxygen == false)
+            if (RunOutOfOxygen == false)
             {
                 RunOutOfOxygen = true;
                 //play animation
                 bubble.Emit(200);
 
-            var em = bubble.emission;
-            em.enabled = false;
-            
+                var em = bubble.emission;
+                em.enabled = false;
+
                 //play sound
                 breathAudio.PlayOneShot(oneBreathe);
             }
             //change vignette
-            maxSpeed = 2 + (oxygen/30.0f);
-            vg.intensity.value = (0.0f - oxygen)/30.0f * 0.4f + 0.1f;
+            maxSpeed = 2 + (oxygen / 30.0f);
+            vg.intensity.value = (0.0f - oxygen) / 30.0f * 0.4f + 0.1f;
             ca.saturation.value = oxygen * 2.8f;
 
         }
-        if(oxygen <=  -30){
-            
+        if (oxygen <= -30)
+        {
+
             isAlive = false;
             PlayerDead();
             return;
         }
 
-        if(oxygen >0 ){
-            if(RunOutOfOxygen == true)
+        if (oxygen > 0)
+        {
+            if (RunOutOfOxygen == true)
             {
-                
-            RunOutOfOxygen = false;
-            //breathAudio.PlayOneShot(longBreath);
-            var em = bubble.emission;
-            em.enabled = true;
-                        maxSpeed = 2;
-            vg.intensity.value =  0.1f;
-            ca.saturation.value = 0;
+
+                RunOutOfOxygen = false;
+                //breathAudio.PlayOneShot(longBreath);
+                var em = bubble.emission;
+                em.enabled = true;
+                maxSpeed = 2;
+                vg.intensity.value = 0.1f;
+                ca.saturation.value = 0;
             }
-            if(softTube.positionCount == 0){
-                vg.intensity.value = Mathf.Sin(Time.time*2.0f) * 0.1f + 0.1f;
+            if (softTube.positionCount == 0)
+            {
+                vg.intensity.value = Mathf.Sin(Time.time * 2.0f) * 0.1f + 0.1f;
             }
-            
+
         }
         GetInput();
-        
-        if(isAlive)
+
+        if (isAlive)
         {
+            ProjectProjectile();
+            Rush();
             PlayerMove();
             PlayerAnimation();
         }
         oxygen -= Time.deltaTime * oxygenRate;
 
 
-        RenderSettings.fogColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
-        mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor,Mathf.Abs(transform.position.y/300.0f));
-        sunLight.intensity = Mathf.Abs(transform.position.y/300.0f) * -1f + 1.0f;
-        ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor,Mathf.Abs(transform.position.y/300.0f));
-        
-        if(transform.position.y > -100 * pipeLevel + 8 && Mathf.Abs(transform.position.x) < 3){
+        RenderSettings.fogColor = Color.Lerp(cameraHighColor, cameraLowColor, Mathf.Abs(transform.position.y / 300.0f));
+        mainCamera.backgroundColor = Color.Lerp(cameraHighColor, cameraLowColor, Mathf.Abs(transform.position.y / 300.0f));
+        sunLight.intensity = Mathf.Abs(transform.position.y / 300.0f) * -1f + 1.0f;
+        ca.colorFilter.value = Color.Lerp(CAHighColor, CALowColor, Mathf.Abs(transform.position.y / 300.0f));
+
+        if (transform.position.y > -100 * pipeLevel + 8 && Mathf.Abs(transform.position.x) < 3)
+        {
             oxygen = maxOxygen;
             softTube.positionCount = 8;
             maxSpeed = 6;
         }
-        else{
+        else
+        {
             softTube.positionCount = 0;
             maxSpeed = 3;
         }
 
-        Vector3 midPoint1 = new Vector3(head.position.x/2.0f,head.position.y-1,0);
-        Vector3 midPoint2 = new Vector3(midPoint1.x /2.0f,head.position.y-0.6f,0.3f);
-        Vector3 midPoint3 = new Vector3(midPoint1.x *1.5f,head.position.y-0.8f,0);
-        Vector3 midPoint4 = (head.position + midPoint3)/2 - new Vector3(0,0.2f,0);
-        Vector3 midPoint5 = (midPoint1 + midPoint3)/2 - new Vector3(0,0.1f,0);
-        Vector3 midPoint6 = (midPoint1 + midPoint2)/2 - new Vector3(0,0.1f,0);
+        Vector3 midPoint1 = new Vector3(head.position.x / 2.0f, head.position.y - 1, 0);
+        Vector3 midPoint2 = new Vector3(midPoint1.x / 2.0f, head.position.y - 0.6f, 0.3f);
+        Vector3 midPoint3 = new Vector3(midPoint1.x * 1.5f, head.position.y - 0.8f, 0);
+        Vector3 midPoint4 = (head.position + midPoint3) / 2 - new Vector3(0, 0.2f, 0);
+        Vector3 midPoint5 = (midPoint1 + midPoint3) / 2 - new Vector3(0, 0.1f, 0);
+        Vector3 midPoint6 = (midPoint1 + midPoint2) / 2 - new Vector3(0, 0.1f, 0);
 
-        softTube.SetPositions(new Vector3[] {head.position,midPoint4,midPoint3,midPoint5,midPoint1,midPoint6,midPoint2,new Vector3(Mathf.Sign(head.position.x)*0.01f, head.position.y+0.8f, 1)});
+        softTube.SetPositions(new Vector3[] { head.position, midPoint4, midPoint3, midPoint5, midPoint1, midPoint6, midPoint2, new Vector3(Mathf.Sign(head.position.x) * 0.01f, head.position.y + 0.8f, 1) });
 
 
     }
+
+    private void Rush()
+    {
+        if (Input.GetButton("Fire3"))
+        {
+            if (oxygen >= 0)
+            {
+                currentSpeed = rushSpeed;
+                playerAnima.speed = 1.8f;
+                oxygen -= rushOxygenRate * Time.deltaTime;
+            }
+        }
+        if (Input.GetButtonUp("Fire3"))
+        {
+            currentSpeed = maxSpeed;
+            playerAnima.speed = 1.0f;
+        }
+    }
+
     void FixedUpdate()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -198,7 +229,7 @@ public class PlayerController : MonoBehaviour
         {   
             PlayerRotate();
             lastDirection = direction;
-            characterController.Move(lastDirection * maxSpeed * Time.deltaTime);
+            characterController.Move(lastDirection * currentSpeed * Time.deltaTime);
             currentSpeed = maxSpeed;
         }
     }
@@ -291,5 +322,19 @@ public class PlayerController : MonoBehaviour
     public void EndGame()
     {
         playerAnima.SetBool("isEnd", true);
+    }
+
+    void ProjectProjectile()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (projectileNumber > 0)
+            {
+                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                projectile.GetComponent<Projectile>().horizontalDirection = -Mathf.Sign(transform.localScale.x);
+                //projectile.transform.parent = transform;
+                projectileNumber--;
+            }
+        }
     }
 }
