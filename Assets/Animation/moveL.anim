@@ -182,7 +182,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.1833333
-        value: {x: 0, y: 0, z: 27.892}
+        value: {x: 0, y: 0, z: -3.145}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -4971,7 +4971,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.1833333
-        value: 27.892
+        value: -3.145
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -7525,7 +7525,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: bone_1/bone_10/bone_11/bone_12/bone_26
+    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7535,7 +7535,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: bone_1/bone_10/bone_11/bone_12/bone_26
+    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7545,7 +7545,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: bone_1/bone_10/bone_11/bone_12/bone_26
+    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8035,7 +8035,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
+    path: bone_1/bone_10/bone_11/bone_12/bone_26
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8045,7 +8045,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
+    path: bone_1/bone_10/bone_11/bone_12/bone_26
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8055,7 +8055,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: bone_1/bone_2/bone_3/bone_7/bone_8/bone_9/bone_24
+    path: bone_1/bone_10/bone_11/bone_12/bone_26
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
