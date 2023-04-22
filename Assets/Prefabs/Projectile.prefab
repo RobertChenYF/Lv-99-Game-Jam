@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8222052244235473608}
   - component: {fileID: 8222052244235473615}
   - component: {fileID: 8222052244235473614}
-  - component: {fileID: 8222052244235473613}
   - component: {fileID: 8222052244235473609}
   - component: {fileID: -8284605650860053212}
-  m_Layer: 2
+  - component: {fileID: 6803782242665633814}
+  - component: {fileID: 2773204397713447669}
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,19 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8222052244235473613
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222052244235473612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8222052244235473609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8222052244235473612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 083eb397e87e9ac42bf2b302ce6cdf10, type: 3}
   m_Name: 
@@ -132,6 +120,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &6803782242665633814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222052244235473612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f899ac23bb843f2934dbb50c5ea732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialAim: {x: 0, y: 0}
+  speed: 5
+  gravity: 1
+--- !u!65 &2773204397713447669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222052244235473612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7003083, y: 2.9999998, z: 0.7003256}
+  m_Center: {x: 0.000000029802322, y: 1.4999999, z: -0.000004172325}
 --- !u!1001 &2799717845815964154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +155,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8222052244235473608}
     m_Modifications:
+    - target: {fileID: 3147798231573069258, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3147798231573069260, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -148,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2D Mask Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147798232174095930, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3147798232174095933, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}

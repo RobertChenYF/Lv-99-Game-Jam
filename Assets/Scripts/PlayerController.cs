@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject birthP;
     [SerializeField] private Image traMask;
 
-
     
     private Vignette vg;
     private ColorAdjustments ca;
@@ -331,8 +330,12 @@ public class PlayerController : MonoBehaviour
             if (projectileNumber > 0)
             {
                 GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().horizontalDirection = -Mathf.Sign(transform.localScale.x);
+                //projectile.GetComponent<Projectile>().horizontalDirection = -Mathf.Sign(transform.localScale.x);
                 //projectile.transform.parent = transform;
+                Vector3 diverScreenPos = mainCamera.WorldToScreenPoint(transform.position);
+                Vector2 MousePos = Input.mousePosition;
+                Vector2 direction = MousePos - new Vector2(diverScreenPos.x, diverScreenPos.y);
+                projectile.GetComponent<LightProjectile>().initialAim = direction.normalized;
                 projectileNumber--;
             }
         }
