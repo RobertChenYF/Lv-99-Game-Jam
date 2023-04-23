@@ -68,7 +68,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Color CALowColor;
     [SerializeField] private LineRenderer softTube;
 
-   
+
+    [Header("Upgrade Option")]
+    [SerializeField] public GameObject Thruster;
+    [SerializeField] public GameObject headLight;
+    [SerializeField] public List<GameObject> heatSuit;
+    [SerializeField] public GameObject airTank;
+
+    [SerializeField] private ParticleSystem thrustParticle;
+
+    [HideInInspector]public bool haveLight = false;
+    [HideInInspector]public bool haveHeatSuit = false;
 
     void Start()
     {
@@ -188,18 +198,23 @@ public class PlayerController : MonoBehaviour
 
     private void Rush()
     {
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire3") && Thruster.activeSelf == true)
         {
             if (oxygen >= 0)
             {
                 currentSpeed = rushSpeed;
                 playerAnima.speed = 1.8f;
                 oxygen -= rushOxygenRate * Time.deltaTime;
+                
+                var emission = thrustParticle.emission;
+                emission.enabled = true;
             }
         }
-        if (Input.GetButtonUp("Fire3"))
+        if (Input.GetButtonUp("Fire3") || oxygen <= 0)
         {
             currentSpeed = maxSpeed;
+            var emission = thrustParticle.emission;
+            emission.enabled = false;
             playerAnima.speed = 1.0f;
         }
     }
@@ -325,7 +340,7 @@ public class PlayerController : MonoBehaviour
 
     void ProjectProjectile()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && haveLight)
         {
             if (projectileNumber > 0)
             {

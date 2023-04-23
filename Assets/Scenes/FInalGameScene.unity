@@ -9446,7 +9446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &432659538
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44355,7 +44355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1324591756
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48095,7 +48095,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1680521924}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!255 &1495377994
 FixedJoint2D:
@@ -52674,7 +52674,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1495377993, guid: b5612272fd0804d9ebb15fb92a850d6e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1065452998491911674, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
@@ -52769,7 +52769,7 @@ PrefabInstance:
     - target: {fileID: 1888653279815528629, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1888653280189882701, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
@@ -52919,12 +52919,12 @@ PrefabInstance:
     - target: {fileID: 4621806215798284044, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5753815532723486995, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6521784965310360846, guid: b5612272fd0804d9ebb15fb92a850d6e,
         type: 3}
