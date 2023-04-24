@@ -52,7 +52,7 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
             text.text = "Do you want to leave?";
         }
         else if(this.name.Equals("man")){
-            text.text = "Welcome back! You have " + GlobalData.Instance.pearls + " pearls.\nDo you want to buy something?";
+            text.text = "Welcome back! You have " + playerController.pearlNumber + " pearls.\nDo you want to buy something?";
         }
         else{
             text.text = "This is "+this.name + ". This costs " + pearlCost + " pearls. " + itemDescription;
@@ -77,7 +77,7 @@ public class ClickEvent : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
                 boat.transform.GetChild(playerController.pipeLevel-1).gameObject.SetActive(true);
             }
             else if(this.name.Equals("oxygen tank")){
-                playerController.maxOxygen += oxygenAdd;
+                playerController.maxOxygen = 140;
                 playerController.airTank.SetActive(true);
             }
             else if(this.name.Equals("thruster")){

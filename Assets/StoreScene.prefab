@@ -1261,8 +1261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
-  oxygenAdd: 80
-  pearlCost: 5
+  oxygenAdd: 70
+  pearlCost: 4
   itemDescription: This increases the maximum amount of oxygen you can hold.
   text: {fileID: 452830553717897841}
 --- !u!1 &2307896634829094526
@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
   oxygenAdd: 10
-  pearlCost: 1
+  pearlCost: 2
   itemDescription: This illuminates dark space around you.
   text: {fileID: 0}
 --- !u!1001 &6137581324922394755
@@ -2073,7 +2073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
   oxygenAdd: 10
-  pearlCost: 4
+  pearlCost: 5
   itemDescription: 'This allows you to consume oxygen to boost speed underwater by
     pressing space button. '
   text: {fileID: 452830553717897841}
@@ -2088,6 +2088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: heat resistant suit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928047939138762501, guid: eac8d41f58e4a4b19bf78b61790f7ef1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6417480613446184383, guid: eac8d41f58e4a4b19bf78b61790f7ef1,
         type: 3}
@@ -2324,7 +2329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 452830554426442561}
   oxygenAdd: 10
-  pearlCost: 2
+  pearlCost: 3
   itemDescription: 'This allows you to throw light sticks to illuminate dark space
     underwater by pressing mouse left button. '
   text: {fileID: 452830553717897841}

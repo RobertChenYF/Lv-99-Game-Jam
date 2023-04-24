@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8222052244235473612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7771424, y: 1.2353911, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.3, z: 0.2}
+  m_LocalPosition: {x: -1.7771424, y: 1.2492, z: -0.0345}
+  m_LocalScale: {x: 0.2, y: 0.10904269, z: 0.10143329}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 969858713063546823}
@@ -160,6 +160,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3147798231573069258, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3147798231573069260, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -183,12 +188,12 @@ PrefabInstance:
     - target: {fileID: 3147798232174095933, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3147798232174095933, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3147798232174095933, guid: 14ad2cbf4c16c4e70b72d79fa551ab4a,
         type: 3}

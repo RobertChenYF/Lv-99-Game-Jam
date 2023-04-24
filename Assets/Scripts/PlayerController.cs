@@ -188,10 +188,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             softTube.positionCount = 0;
-            maxSpeed = 3;
+            maxSpeed = 3.0f;
         }
 
-        oxygenBar.AngRadiansEnd = Mathf.Clamp(oxygen / 130 * 2 * Mathf.PI,0,2 * Mathf.PI);
+        oxygenBar.AngRadiansEnd = Mathf.Clamp(oxygen / 140 * 2 * Mathf.PI,0,2 * Mathf.PI);
 
         Vector3 midPoint1 = new Vector3(head.position.x / 2.0f, head.position.y - 1, 0);
         Vector3 midPoint2 = new Vector3(midPoint1.x / 2.0f, head.position.y - 0.6f, 0.3f);
