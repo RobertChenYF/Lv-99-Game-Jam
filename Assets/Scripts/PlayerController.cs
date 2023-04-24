@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.UI;
+using Shapes;
 
 public class PlayerController : MonoBehaviour
 {
@@ -79,6 +80,10 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]public bool haveLight = false;
     [HideInInspector]public bool haveHeatSuit = false;
+    
+
+    [Header("Oxygen Bar UI")]
+    [SerializeField] private Disc oxygenBar;
 
     void Start()
     {
@@ -174,7 +179,9 @@ public class PlayerController : MonoBehaviour
 
         if (transform.position.y > -100 * pipeLevel + 8 && Mathf.Abs(transform.position.x) < 3)
         {
-            oxygen = maxOxygen;
+            oxygen += Time.deltaTime * 20.0f;
+
+            oxygen = Mathf.Clamp(oxygen, 0, maxOxygen);
             softTube.positionCount = 8;
             maxSpeed = 6;
         }
@@ -183,6 +190,8 @@ public class PlayerController : MonoBehaviour
             softTube.positionCount = 0;
             maxSpeed = 3;
         }
+
+        oxygenBar.AngRadiansEnd = Mathf.Clamp(oxygen / 130 * 2 * Mathf.PI,0,2 * Mathf.PI);
 
         Vector3 midPoint1 = new Vector3(head.position.x / 2.0f, head.position.y - 1, 0);
         Vector3 midPoint2 = new Vector3(midPoint1.x / 2.0f, head.position.y - 0.6f, 0.3f);
